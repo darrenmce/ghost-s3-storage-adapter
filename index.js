@@ -150,13 +150,13 @@ S3Store.prototype.serve = function(options) {
             res.status(500);
         };
     }
-
+    
+    var self = this;
     return function (req, res, next) {
         var params = {
-            Bucket: this.config.bucket,
+            Bucket: self.config.bucket,
             Key: req.path.replace(/^\//, '')
         };
-
         s3Client.getObject(params)
             .on('httpHeaders', function(statusCode, headers, response) {
                 res.set(headers);
