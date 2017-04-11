@@ -155,7 +155,7 @@ S3Store.prototype.serve = function(options) {
     return function (req, res, next) {
         var params = {
             Bucket: self.config.bucket,
-            Key: req.path.replace(/^\//, '')
+            Key: req.path.replace(/^\//, '').replace(/\/$/, '')
         };
         s3Client.getObject(params)
             .on('httpHeaders', function(statusCode, headers, response) {
