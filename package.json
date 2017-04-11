@@ -32,8 +32,5 @@
   "dependencies": {
     "aws-sdk": "^2.3.0",
     "bluebird": "^2.10.2"
-  },
-  "peerDependencies": {
-    "ghost": ">=0.10.0"
   }
 }
